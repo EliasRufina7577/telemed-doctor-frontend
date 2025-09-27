@@ -21,7 +21,6 @@ function DoctorDashboard() {
 
   // Socket and live patient setup
   useEffect(() => {
-    // Connect to socket
     socketRef.current = io(SOCKET);
 
     // Register doctor for real-time updates
@@ -60,14 +59,12 @@ function DoctorDashboard() {
 
     navigate("/doctor-video", { state: { room, identity: doctorIdentity } });
 
-    // Mark patient as seen
     await fetch(`${API}/api/mark-seen`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ phone: patientPhone }),
     });
 
-    // Remove patient from list after call started
     setPatients((prev) => prev.filter((p) => p.phone !== patientPhone));
   };
 
@@ -78,6 +75,12 @@ function DoctorDashboard() {
 
   return (
     <div style={{ padding: 30, background: "#f5f7fa", minHeight: "100vh" }}>
+      
+      {/* Top centered heading */}
+      <h1 style={{ textAlign: "center", color: "#2c3e50", marginBottom: 40 }}>
+        Sehat Bandhu
+      </h1>
+
       <h1 style={{ color: "#3498db" }}>Doctor Dashboard</h1>
 
       {patients.length === 0 && <p>No patient data yet.</p>}
