@@ -9,8 +9,8 @@ function DoctorDashboard() {
   const navigate = useNavigate();
 
   const doctorIdentity = localStorage.getItem("doctorIdentity") || "doctor1";
-  const API = "https://telemed-backend-3.onrender.com";
-  const SOCKET = "https://telemed-backend-3.onrender.com";
+  const API = "https://telemed-backend-ysea.onrender.com";
+  const SOCKET = "https://telemed-backend-ysea.onrender.com";
 
   // Store doctorIdentity if not already in localStorage
   useEffect(() => {
